@@ -34,15 +34,19 @@ El proyecto sigue una arquitectura modular de ingeniería de datos y desarrollo 
 
 ### Estructura del Directorio
 
+```bash
 wallet-scoring-system/
 ├── backend/
-│   ├── data_ingestion.py
-│   ├── scoring_model.py
-│   └── main.py
+│   ├── data_ingestion.py       # Ingesta desde API y almacenamiento en DuckDB
+│   ├── scoring_model.py        # Lógica del cálculo de indicadores y score final
+│   └── main.py                 # Endpoints FastAPI y orquestación general
+│
 ├── data/
-│   └── wallet_data.duckdb
-├── .env
-└── requirements.txt
+│   └── wallet_data.duckdb      # Base de datos local (ignorada por Git)
+│
+├── .env                        # Variables de entorno (API Key, etc.) (ignorada por Git)
+└── requirements.txt            # Dependencias del proyecto
+```
 
 ## 🛠️ Getting Started (Configuración y Ejecución)
 
