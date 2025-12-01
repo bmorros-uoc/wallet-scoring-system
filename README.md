@@ -16,7 +16,7 @@ El sistema de puntuación genera un **score global (0-100)** y asigna un perfil 
 * **Activity Score (Actividad):** Evalúa la cantidad y la regularidad de las transacciones, así como el volumen de operaciones, como signo de uso auténtico.
 * **Diversity Score (Diversidad):** Cuantifica la variedad de protocolos o tokens con los que ha interactuado la wallet, sugiriendo experiencia y comportamiento exploratorio legítimo.
 * **Risk Score (Riesgo General):** Identifica interacciones con contratos que han sido identificados como fraudulentos o direcciones conocidas de scam.
-* **Asset Risk Score (Riesgo de Activos):** Evalúa la interacción de la wallet con tokens o activos (ERC-20) marcados como de alto riesgo (ej: *privacy coins* o tokens asociados a *mixers*).
+* **Asset Risk Score (Riesgo de Activos):** Evalúa la interacción de la wallet con tokens o activos (ERC-20) marcados como de alto riesgo (ej: *privacy coins* o tokens asociados a *mixers*). - (Falta incluir)
 
 ---
 
