@@ -1,58 +1,58 @@
 # 🚀 Wallet Scoring System
 
-**Diseño e implementación de un sistema explicable de reputación para wallets Web3 basado en datos on-chain.**
+**Design and implementation of an explainable reputation system for Web3 wallets based on on-chain data.**
 
-Este proyecto constituye un prototipo funcional (MVP) de una herramienta que analiza y calcula la reputación y confiabilidad de una dirección (wallet) de criptomonedas, basándose exclusivamente en su conducta observable dentro de la blockchain de Ethereum (datos on-chain).
+This project constitutes a functional prototype (MVP) of a tool that analyzes and calculates the reputation and trustworthiness of a cryptocurrency address (wallet), based exclusively on its observable behavior within the Ethereum blockchain (on-chain data).
 
-El sistema está diseñado para ser **explicable, transparente y reproducible**, utilizando un modelo basado en reglas y ponderaciones fácilmente interpretables. 
-
----
-
-## ✨ Características Clave e Indicadores
-
-El sistema de puntuación genera un **score global (0-100)** y asigna un perfil cualitativo, basándose en la evaluación de los siguientes indicadores, cada uno con un peso configurable (la suma de pesos es 100%):
-
-* **Longevity Score (Antigüedad):** Mide la edad de la billetera (desde su primera transacción), correlacionando la antigüedad con la estabilidad y continuidad.
-* **Activity Score (Actividad):** Evalúa la cantidad y la regularidad de las transacciones, así como el volumen de operaciones, como signo de uso auténtico.
-* **Diversity Score (Diversidad):** Cuantifica la variedad de protocolos o tokens con los que ha interactuado la wallet, sugiriendo experiencia y comportamiento exploratorio legítimo.
-* **Risk Score (Riesgo General):** Identifica interacciones con contratos que han sido identificados como fraudulentos o direcciones conocidas de scam.
-* **Asset Risk Score (Riesgo de Activos):** Evalúa la interacción de la wallet con tokens o activos (ERC-20) marcados como de alto riesgo (ej: *privacy coins* o tokens asociados a *mixers*). - (Falta incluir)
+The system is designed to be **explainable, transparent, and reproducible**, using a model based on easily interpretable rules and weightings.
 
 ---
 
-## ⚙️ Arquitectura del Sistema
+## ✨ Key Features and Indicators
 
-El proyecto sigue una arquitectura modular de ingeniería de datos y desarrollo de software, estructurado en tres fases (ingesta, almacenamiento/procesamiento y scoring).
+The scoring system generates a **global score (0-100)** and assigns a qualitative profile, based on the evaluation of the following indicators, each with a configurable weight (the sum of weights is 100%):
 
-### Tecnologías
+* **Longevity Score:** Measures the age of the wallet (since its first transaction), correlating longevity with stability and continuity.
+* **Activity Score:** Evaluates the quantity and regularity of transactions, as well as the operational volume, as a sign of authentic usage.
+* **Diversity Score:** Quantifies the variety of protocols or tokens with which the wallet has interacted, suggesting experience and legitimate exploratory behavior.
+* **Risk Score (General Risk):** Identifies interactions with contracts that have been identified as fraudulent or known scam addresses.
+* **Asset Risk Score:** Evaluates the wallet's interaction with tokens or assets (ERC-20) flagged as high-risk (e.g., *privacy coins* or tokens associated with *mixers*). - (To be included)
 
-| Componente | Tecnología | Propósito |
+---
+
+## ⚙️ System Architecture
+
+The project follows a modular data engineering and software development architecture, structured in three phases (ingestion, storage/processing, and scoring).
+
+### Technologies
+
+| Component | Technology | Purpose |
 | :--- | :--- | :--- |
-| **Backend** | Python, FastAPI | Encargado de la lógica de negocio, la recolección de datos y el cálculo del score. |
-| **Data Ingestion** | Etherscan API | Fuente principal de datos públicos on-chain (transacciones ETH y tokens ERC-20). |
-| **Base de Datos** | DuckDB | Base de datos ligera, sin necesidad de servidor, utilizada para el almacenamiento temporal y la normalización de los datos extraídos. |
+| **Backend** | Python, FastAPI | Responsible for the business logic, data collection, and score calculation. |
+| **Data Ingestion** | Etherscan API | Main source of public on-chain data (ETH and ERC-20 token transactions). |
+| **Database** | DuckDB | Lightweight, serverless database used for temporary storage and normalization of extracted data. |
 
-### Estructura del Directorio
+### Directory Structure
 
 ```bash
 wallet-scoring-system/
 ├── backend/
-│   ├── data_ingestion.py       # Ingesta desde API y almacenamiento en DuckDB
-│   ├── scoring_model.py        # Lógica del cálculo de indicadores y score final
-│   └── main.py                 # Endpoints FastAPI y orquestación general
+│   ├── data_ingestion.py       # Ingestion from API and storage in DuckDB
+│   ├── scoring_model.py        # Logic for calculating indicators and final score
+│   └── main.py                 # FastAPI Endpoints and general orchestration
 │
 ├── data/
-│   └── wallet_data.duckdb      # Base de datos local (ignorada por Git)
+│   └── wallet_data.duckdb      # Local database (ignored by Git)
 │
-├── .env                        # Variables de entorno (API Key, etc.) (ignorada por Git)
-└── requirements.txt            # Dependencias del proyecto
+├── .env                        # Environment variables (API Key, etc.) (ignored by Git)
+└── requirements.txt            # Project dependencies
 ```
 
-## 🛠️ Getting Started (Configuración y Ejecución)
+## 🛠️ Getting Started (Setup and Execution)
 
-### Prerrequisitos
+### Prerequisites
 
 * Python 3.8+
-* Clave API de Etherscan (necesaria para `data_ingestion.py`).
+* Etherscan API Key (required for `data_ingestion.py`).
 
 ...
